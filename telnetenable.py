@@ -49,6 +49,9 @@ def ByteSwap(data):
   return a.tostring()
 
 def GeneratePayload(mac, username, password=""):
+  # eventually reformat mac
+  mac = mac.replace(":","").upper()
+
   # Pad the input correctly
   assert(len(mac) < 0x10)
   just_mac = mac.ljust(0x10, "\x00")
